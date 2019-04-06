@@ -9,7 +9,7 @@ red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
-software=(Docker_Caddy Docker_Caddy_cloudflare Docker)
+software=(Docker Docker_Caddy Docker_Caddy_cloudflare)
 operation=(install update_config update_image logs)
 # Make sure only root can run our script
 [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
@@ -136,8 +136,10 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
 
+    if [ "${v2ray_usemysql}" -eq 0 ];
+        then
       # Set ssrpanel_url
-    echo "Please sspanel_url, u can pass this setting u chosen use mysql"
+    echo "Please sspanel_url"
     read -p "(There is no default value please make sure you input the right thing):" ssrpanel_url
     [ -z "${ssrpanel_url}" ]
     echo
@@ -146,7 +148,7 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
     # Set ssrpanel key
-    echo "sspanel key  u can pass this setting u chosen use mysql"
+    echo "sspanel key"
     read -p "(There is no default value please make sure you input the right thing):" ssrpanel_key
     [ -z "${ssrpanel_key}" ]
     echo
@@ -154,8 +156,10 @@ pre_install_docker_compose(){
     echo "ssrpanel_key = ${ssrpanel_key}"
     echo "---------------------------"
     echo
+    else
+
    # Set Setting if the node go downwith panel
-    echo "Setting Myqlhost,  u can pass this setting u chosen use webapi"
+    echo "Setting Myqlhost"
     read -p "(v2ray_downWithPanel :" v2ray_mysqlhost
     [ -z "${v2ray_mysqlhost}" ] && v2ray_mysqlhost=""
     echo
@@ -164,7 +168,7 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
     # Set Setting if the node go downwith panel
-    echo "Setting MysqlPort u can pass this setting u chosen use webapi"
+    echo "Setting MysqlPort"
     read -p "(v2ray_mysqlport (Default 3306):" v2ray_mysqlport
     [ -z "${v2ray_mysqlport}" ] && v2ray_mysqlport=3306
     echo
@@ -173,7 +177,7 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
     # Set Setting if the node go downwith panel
-    echo "Setting MysqlUser u can pass this setting u chosen use webapi"
+    echo "Setting MysqlUser"
     read -p "(v2ray_myqluser (Default root):" v2ray_myqluser
     [ -z "${v2ray_myqluser}" ] && v2ray_myqluser="root"
     echo
@@ -182,7 +186,7 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
     # Set Setting if the node go downwith panel
-    echo "Setting MysqlPassword u can pass this setting u chosen use webapi"
+    echo "Setting MysqlPassword"
     read -p "(v2ray_mysqlpassword (Default 1):" v2ray_mysqlpassword
     [ -z "${v2ray_mysqlpassword}" ] && v2ray_mysqlpassword=1
     echo
@@ -191,7 +195,7 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
     # Set Setting if the node go downwith panel
-    echo "Setting MysqlDbname u can pass this setting u chosen use webapi"
+    echo "Setting MysqlDbname"
     read -p "(v2ray_mysqldbname (Default 1):" v2ray_mysqldbname
     [ -z "${v2ray_mysqldbname}" ] && v2ray_mysqldbname=1
     echo
@@ -199,8 +203,7 @@ pre_install_docker_compose(){
     echo "v2ray_mysqldbname = ${v2ray_mysqldbname}"
     echo "---------------------------"
     echo
-
-
+    fi
     # Set ssrpanel speedtest function
     echo "use sspanel speedtest"
     read -p "(sspanel speedtest: Default (6) hours every time):" ssrpanel_speedtest
