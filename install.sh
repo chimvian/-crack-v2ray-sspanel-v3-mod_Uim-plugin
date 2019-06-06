@@ -519,17 +519,17 @@ update_config_v2ray(){
     case "${selected}" in
         1)
         pre_install_docker_compose
-        pre_install_caddy
-        config_caddy_docker
+        config_docker
         ;;
         2)
         pre_install_docker_compose
         pre_install_caddy
-        config_caddy_docker_cloudflare
+        config_caddy_docker
         ;;
         3)
         pre_install_docker_compose
-        config_docker
+        pre_install_caddy
+        config_caddy_docker_cloudflare
         ;;
         *)
         echo "Wrong number"
