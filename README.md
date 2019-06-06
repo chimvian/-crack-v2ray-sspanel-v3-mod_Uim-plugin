@@ -26,7 +26,8 @@
 亦支持 [SSRPanel](https://github.com/ssrpanel/SSRPanel)，使用数据库连接。
 
 **作为 ss-panel-v3-mod 后端目前支持：**
-
+- mysql数据库连接ssrpanel 和sspanel
+- ss+ws 单端口
 - 限速
 - 流量记录
 - 在线人数
