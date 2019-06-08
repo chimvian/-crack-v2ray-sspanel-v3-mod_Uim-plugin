@@ -17,7 +17,6 @@
 
 ## 使用重点
 
-1. 后端端口设置为 0 或为空，才会监听本地，不再是 443。这个重写功能我还未提交pr到上游，请务必抄一下我的repo代码[ss-panel-v3-mod_Uim](https://github.com/rico93/ss-panel-v3-mod_Uim)。
 
 ## 项目状态
 
