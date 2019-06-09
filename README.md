@@ -4,13 +4,11 @@
 
 # 使用教程请看 [WIKI](https://github.com/rico93/pay-v2ray-sspanel-v3-mod_Uim-plugin/wiki/)
 
-### 免费版 [请点击这里](https://github.com/rico93/v2ray-sspanel-v3-mod_Uim-plugin/)
-
 ## 公告
 
 1. 限速功能完成，是收费版本(不在提供源码，只提供二进制文件，需要联系使用[bot购买](https://t.me/Rico_V2_bot))
 2. 完成胖虎 SSRPanel 和 SSpanel MySQL 连接的适配
-3. 未来将会写自动配置 tls(摆脱caddy) 咕咕
+3. 自动tls完成，但会占用80，后期用dns api
 
 ## Thanks
 
@@ -19,8 +17,6 @@
 
 ## 使用重点
 
-1. 后端端口设置为 0 或为空，才会监听本地，不再是 443。
-2. 后端支持中转，但必须使用我自己维护的 [ss-panel-v3-mod_Uim](https://github.com/rico93/ss-panel-v3-mod_Uim)。
 
 ## 项目状态
 
@@ -29,7 +25,8 @@
 亦支持 [SSRPanel](https://github.com/ssrpanel/SSRPanel)，使用数据库连接。
 
 **作为 ss-panel-v3-mod 后端目前支持：**
-
+- mysql数据库连接ssrpanel 和sspanel
+- ss+ws 单端口
 - 限速
 - 流量记录
 - 在线人数
