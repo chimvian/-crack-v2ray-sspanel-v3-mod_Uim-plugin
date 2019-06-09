@@ -112,6 +112,9 @@ while [[ $# > 0 ]];do
         --usemysql)
         USEMYSQL="$2"
         ;;
+        --ldns)
+        LDNS="$2"
+        ;;
         *)
                 # unknown option
         ;;
@@ -395,7 +398,11 @@ installV2Ray(){
                 colorEcho ${BLUE} "USEMYSQL:${USEMYSQL}"
 
         fi
-
+        if [ ! -z "${LDNS}" ]
+        then
+                sed -i "s|\"1.1.1.1\"|\"${LDNS}\"|g" "/etc/v2ray/config.json"
+                 colorEcho ${BLUE} "DNS:${LDNS}"
+        fi
 
     fi
     return 0

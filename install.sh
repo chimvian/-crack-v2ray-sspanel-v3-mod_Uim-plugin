@@ -125,7 +125,15 @@ pre_install_docker_compose(){
     echo "ssrpanel_node_id = ${ssrpanel_node_id}"
     echo "---------------------------"
     echo
-
+     # Set ssrpanel node_id
+    echo "DNS "
+    read -p "(Default value: 1.1.1.1 ):" LDNS
+    [ -z "${LDNS}" ] && LDNS="1.1.1.1"
+    echo
+    echo "---------------------------"
+    echo "DNS = ${LDNS}"
+    echo "---------------------------"
+    echo
 
     echo "Which connection do you prefer 0 for webapi 1 for mysql"
     read -p "(v2ray_usemysql (Default 0):" v2ray_usemysql
@@ -305,6 +313,7 @@ config_docker(){
     curl -L https://raw.githubusercontent.com/rico93/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/V2ray/docker-compose.yml > docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
+    sed -i "s|LDNS:.*|LDNS: '${LDNS}'|"  ./docker-compose.yml
     sed -i "s|key:.*|key: '${ssrpanel_key}'|"  ./docker-compose.yml
     sed -i "s|speedtest:.*|speedtest: ${ssrpanel_speedtest}|"  ./docker-compose.yml
     sed -i "s|api_port:.*|api_port: ${v2ray_api_port}|" ./docker-compose.yml
@@ -330,6 +339,7 @@ config_caddy_docker(){
     echo "Writing docker-compose.yml"
     curl -L https://raw.githubusercontent.com/rico93/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml > docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
+    sed -i "s|LDNS:.*|LDNS: '${LDNS}'|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
     sed -i "s|key:.*|key: '${ssrpanel_key}'|"  ./docker-compose.yml
     sed -i "s|speedtest:.*|speedtest: ${ssrpanel_speedtest}|"  ./docker-compose.yml
@@ -383,6 +393,7 @@ config_caddy_docker_cloudflare(){
     epcho "Writing docker-compose.yml"
     curl -L https://raw.githubusercontent.com/rico93/pay-v2ray-sspanel-v3-mod_Uim-plugin/master/Docker/Caddy_V2ray/docker-compose.yml >docker-compose.yml
     sed -i "s|node_id:.*|node_id: ${ssrpanel_node_id}|"  ./docker-compose.yml
+    sed -i "s|LDNS:.*|LDNS: '${LDNS}'|"  ./docker-compose.yml
     sed -i "s|sspanel_url:.*|sspanel_url: '${ssrpanel_url}'|"  ./docker-compose.yml
     sed -i "s|key:.*|key: '${ssrpanel_key}'|"  ./docker-compose.yml
     sed -i "s|speedtest:.*|speedtest: ${ssrpanel_speedtest}|"  ./docker-compose.yml
