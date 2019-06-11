@@ -168,7 +168,7 @@ pre_install_docker_compose(){
 
    # Set Setting if the node go downwith panel
     echo "Setting Myqlhost"
-    read -p "(v2ray_downWithPanel :" v2ray_mysqlhost
+    read -p "(v2ray_mysqlhost :" v2ray_mysqlhost
     [ -z "${v2ray_mysqlhost}" ] && v2ray_mysqlhost=""
     echo
     echo "---------------------------"
