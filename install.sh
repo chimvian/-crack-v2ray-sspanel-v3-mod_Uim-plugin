@@ -127,8 +127,8 @@ pre_install_docker_compose(){
     echo
      # Set ssrpanel node_id
     echo "DNS "
-    read -p "(Default value: 1.1.1.1 ):" LDNS
-    [ -z "${LDNS}" ] && LDNS="1.1.1.1"
+    read -p "(Default value: localhost ):" LDNS
+    [ -z "${LDNS}" ] && LDNS="localhost"
     echo
     echo "---------------------------"
     echo "DNS = ${LDNS}"

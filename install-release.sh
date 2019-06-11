@@ -400,7 +400,7 @@ installV2Ray(){
         fi
         if [ ! -z "${LDNS}" ]
         then
-                sed -i "s|\"1.1.1.1\"|\"${LDNS}\"|g" "/etc/v2ray/config.json"
+                sed -i "s|\"localhost\"|\"${LDNS}\"|g" "/etc/v2ray/config.json"
                  colorEcho ${BLUE} "DNS:${LDNS}"
         fi
 
