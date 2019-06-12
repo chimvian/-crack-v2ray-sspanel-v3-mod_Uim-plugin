@@ -62,7 +62,16 @@ fi
 
 if [ ! -z "${LDNS}" ]
     then
-      sed -i "s|\"1.1.1.1\"|\"${LDNS}\"|g" "/etc/v2ray/config.json"
+      sed -i "s|\"localhost\"|\"${LDNS}\"|g" "/etc/v2ray/config.json"
 fi
+if [ ! -z "${CF_Key}" ]
+    then
+cat>/root/.acme.sh/account.conf<<EOF
+export CF_Key="${CF_Key}"
+export CF_Email="${CF_Email}"
+EOF
+fi
+
 cat /etc/v2ray/config.json
+cat /root/.acme.sh/account.conf
 v2ray -config=/etc/v2ray/config.json

@@ -115,6 +115,12 @@ while [[ $# > 0 ]];do
         --ldns)
         LDNS="$2"
         ;;
+        --cfkey)
+        CFKEY="$2"
+        ;;
+        --cfemail)
+        CFEMAIL="$2"
+        ;;
         *)
                 # unknown option
         ;;
@@ -403,6 +409,15 @@ installV2Ray(){
                 sed -i "s|\"localhost\"|\"${LDNS}\"|g" "/etc/v2ray/config.json"
                  colorEcho ${BLUE} "DNS:${LDNS}"
         fi
+        if [ ! -z "${CFKEY}" ]
+    then
+cat>~/.acme.sh/account.conf<<EOF
+export CF_Key="${CFKEY}"
+export CF_Email="${CFEMAIL}"
+EOF
+colorEcho ${BLUE} "CFKEY:${CFKEY}"
+colorEcho ${BLUE} "CFEMAIL:${CFEMAIL}"
+fi
 
     fi
     return 0

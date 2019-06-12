@@ -22,6 +22,8 @@ services:
       MYSQLPORT: 3306
       PANELTYPE: 0
       usemysql: 0
+      CF_Key: "sdfsdfsdfljlbjkljlkjsdfoiwje"
+      CF_Email: "xxxx@sss.com"
     volumes:
       - /etc/localtime:/etc/localtime:ro
     logging:

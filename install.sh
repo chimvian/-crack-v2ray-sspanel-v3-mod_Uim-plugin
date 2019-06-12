@@ -135,6 +135,27 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
 
+    # Set caddy cloudflare ddns email
+    echo "cloudflare email for tls"
+    read -p "(No default ):" cloudflare_email
+    [ -z "${cloudflare_email}" ]
+    echo
+    echo "---------------------------"
+    echo "cloudflare_email = ${cloudflare_email}"
+    echo "---------------------------"
+    echo
+
+    # Set caddy cloudflare ddns key
+    echo "cloudflare key for tls"
+    read -p "(No default ):" cloudflare_key
+    [ -z "${cloudflare_key}" ]
+    echo
+    echo "---------------------------"
+    echo "cloudflare_key = ${cloudflare_key}"
+    echo "---------------------------"
+    echo
+    echo
+
     echo "Which connection do you prefer 0 for webapi 1 for mysql"
     read -p "(v2ray_usemysql (Default 0):" v2ray_usemysql
     [ -z "${v2ray_usemysql}" ] && v2ray_usemysql=0
@@ -325,6 +346,8 @@ config_docker(){
     sed -i "s|MYSQLUSR:.*|MYSQLUSR: ${v2ray_myqluser}|" ./docker-compose.yml
     sed -i "s|MYSQLPASSWD:.*|MYSQLPASSWD: ${v2ray_mysqlpassword}|" ./docker-compose.yml
     sed -i "s|MYSQLDBNAME:.*|MYSQLDBNAME: ${v2ray_mysqldbname}|" ./docker-compose.yml
+    sed -i "s|CF_Key:.*|CF_Key: ${cloudflare_key}|" ./docker-compose.yml
+    sed -i "s|CF_Email:.*|CF_Email: ${cloudflare_email}|" ./docker-compose.yml
 }
 
 
@@ -352,6 +375,8 @@ config_caddy_docker(){
     sed -i "s|MYSQLUSR:.*|MYSQLUSR: ${v2ray_myqluser}|" ./docker-compose.yml
     sed -i "s|MYSQLPASSWD:.*|MYSQLPASSWD: ${v2ray_mysqlpassword}|" ./docker-compose.yml
     sed -i "s|MYSQLDBNAME:.*|MYSQLDBNAME: ${v2ray_mysqldbname}|" ./docker-compose.yml
+    sed -i "s|CF_Key:.*|CF_Key: ${cloudflare_key}|" ./docker-compose.yml
+    sed -i "s|CF_Email:.*|CF_Email: ${cloudflare_email}|" ./docker-compose.yml
     sed -i "s|V2RAY_DOMAIN=xxxx.com|V2RAY_DOMAIN=${v2ray_domain}|"  ./docker-compose.yml
     sed -i "s|V2RAY_PATH=/v2ray|V2RAY_PATH=${v2ray_path}|"  ./docker-compose.yml
     sed -i "s|V2RAY_EMAIL=xxxx@outlook.com|V2RAY_EMAIL=${v2ray_email}|"  ./docker-compose.yml
@@ -361,27 +386,6 @@ config_caddy_docker(){
 
 # Config caddy_docker
 config_caddy_docker_cloudflare(){
-
-    # Set caddy cloudflare ddns email
-    echo "caddy cloudflare ddns email"
-    read -p "(No default ):" cloudflare_email
-    [ -z "${cloudflare_email}" ]
-    echo
-    echo "---------------------------"
-    echo "cloudflare_email = ${cloudflare_email}"
-    echo "---------------------------"
-    echo
-
-    # Set caddy cloudflare ddns key
-    echo "caddy cloudflare ddns key"
-    read -p "(No default ):" cloudflare_key
-    [ -z "${cloudflare_email}" ]
-    echo
-    echo "---------------------------"
-    echo "cloudflare_email = ${cloudflare_key}"
-    echo "---------------------------"
-    echo
-    echo
 
     echo "Press any key to start...or Press Ctrl+C to cancel"
     char=`get_char`
@@ -406,6 +410,8 @@ config_caddy_docker_cloudflare(){
     sed -i "s|MYSQLUSR:.*|MYSQLUSR: ${v2ray_myqluser}|" ./docker-compose.yml
     sed -i "s|MYSQLPASSWD:.*|MYSQLPASSWD: ${v2ray_mysqlpassword}|" ./docker-compose.yml
     sed -i "s|MYSQLDBNAME:.*|MYSQLDBNAME: ${v2ray_mysqldbname}|" ./docker-compose.yml
+    sed -i "s|CF_Key:.*|CF_Key: ${cloudflare_key}|" ./docker-compose.yml
+    sed -i "s|CF_Email:.*|CF_Email: ${cloudflare_email}|" ./docker-compose.yml
     sed -i "s|V2RAY_DOMAIN=xxxx.com|V2RAY_DOMAIN=${v2ray_domain}|"  ./docker-compose.yml
     sed -i "s|V2RAY_PATH=/v2ray|V2RAY_PATH=${v2ray_path}|"  ./docker-compose.yml
     sed -i "s|V2RAY_EMAIL=xxxx@outlook.com|V2RAY_EMAIL=${v2ray_email}|"  ./docker-compose.yml
