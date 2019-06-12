@@ -412,8 +412,8 @@ installV2Ray(){
         if [ ! -z "${CFKEY}" ]
     then
 cat>~/.acme.sh/account.conf<<EOF
-export CF_Key="${CFKEY}"
-export CF_Email="${CFEMAIL}"
+CF_Key="${CFKEY}"
+CF_Email="${CFEMAIL}"
 EOF
 colorEcho ${BLUE} "CFKEY:${CFKEY}"
 colorEcho ${BLUE} "CFEMAIL:${CFEMAIL}"

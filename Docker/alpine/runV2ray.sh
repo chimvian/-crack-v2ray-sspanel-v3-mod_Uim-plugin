@@ -67,8 +67,8 @@ fi
 if [ ! -z "${CF_Key}" ]
     then
 cat>/root/.acme.sh/account.conf<<EOF
-export CF_Key="${CF_Key}"
-export CF_Email="${CF_Email}"
+CF_Key="${CF_Key}"
+CF_Email="${CF_Email}"
 EOF
 fi
 
