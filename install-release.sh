@@ -410,14 +410,15 @@ installV2Ray(){
                  colorEcho ${BLUE} "DNS:${LDNS}"
         fi
         if [ ! -z "${CFKEY}" ]
-    then
-cat>~/.acme.sh/account.conf<<EOF
-CF_Key="${CFKEY}"
-CF_Email="${CFEMAIL}"
-EOF
-colorEcho ${BLUE} "CFKEY:${CFKEY}"
-colorEcho ${BLUE} "CFEMAIL:${CFEMAIL}"
-fi
+        then
+          sed -i "s|\"bbbbbbbbbbbbbbbbbb\"|\"${CFKEY}\"|g" "/etc/v2ray/config.json"
+            colorEcho ${BLUE} "CFKEY:${CFKEY}"
+        fi
+         if [ ! -z "${CFKEY}" ]
+        then
+          sed -i "s|\"rico93@outlxxxxxxxxxx.com\"|\"${CFEMAI}\"|g" "/etc/v2ray/config.json"
+            colorEcho ${BLUE} "CFKEY:${CFEMAI}"
+        fi
 
     fi
     return 0
