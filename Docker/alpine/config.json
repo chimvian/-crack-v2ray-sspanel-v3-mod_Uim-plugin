@@ -123,6 +123,8 @@
     "paneltype": 0,
     "usemysql": 0,
     "go_panel_host": "bwg.com",
-    "go_panel_key": "bbbbaaaaaaa"
+    "go_panel_key": "bbbbaaaaaaa",
+    "cf_key": "bbbbbbbbbbbbbbbbbb",
+    "cf_email": "rico93@outlxxxxxxxxxx.com"
   }
 }

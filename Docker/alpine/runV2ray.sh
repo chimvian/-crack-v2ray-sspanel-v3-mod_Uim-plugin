@@ -65,13 +65,15 @@ if [ ! -z "${LDNS}" ]
       sed -i "s|\"localhost\"|\"${LDNS}\"|g" "/etc/v2ray/config.json"
 fi
 if [ ! -z "${CF_Key}" ]
-    then
-cat>/root/.acme.sh/account.conf<<EOF
-CF_Key="${CF_Key}"
-CF_Email="${CF_Email}"
-EOF
+then
+  sed -i "s|\"bbbbbbbbbbbbbbbbbb\"|\"${CF_Key}\"|g" "/etc/v2ray/config.json"
+fi
+if [ ! -z "${CF_Email}" ]
+then
+  sed -i "s|\"rico93@outlxxxxxxxxxx.com\"|\"${CF_Email}\"|g" "/etc/v2ray/config.json"
+
 fi
 
+
 cat /etc/v2ray/config.json
-cat /root/.acme.sh/account.conf
 v2ray -config=/etc/v2ray/config.json
