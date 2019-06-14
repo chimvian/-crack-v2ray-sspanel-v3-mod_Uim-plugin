@@ -414,7 +414,8 @@ installV2Ray(){
           sed -i "s|\"bbbbbbbbbbbbbbbbbb\"|\"${CFKEY}\"|g" "/etc/v2ray/config.json"
             colorEcho ${BLUE} "CFKEY:${CFKEY}"
         fi
-         if [ ! -z "${CFEMAIL}" ]
+        colorEcho ${BLUE} "CFEMAIL:${CFEMAIL}"
+        if [ ! -z "${CFEMAIL}" ]
         then
           sed -i "s|\"rico93@outlxxxxxxxxxx.com\"|\"${CFEMAIL}\"|g" "/etc/v2ray/config.json"
             colorEcho ${BLUE} "CFEMAIL:${CFEMAIL}"
