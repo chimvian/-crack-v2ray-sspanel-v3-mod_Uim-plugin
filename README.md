@@ -8,7 +8,7 @@
 
 1. 限速功能完成，是收费版本(不在提供源码，只提供二进制文件，需要联系使用[bot购买](https://t.me/Rico_V2_bot))
 2. 完成胖虎 SSRPanel 和 SSpanel MySQL 连接的适配
-3. 自动tls完成，但会占用80，后期用dns api
+3. 自动tls完成，用dns api
 
 ## Thanks
 
