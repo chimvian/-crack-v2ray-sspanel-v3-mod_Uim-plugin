@@ -136,9 +136,9 @@ pre_install_docker_compose(){
     echo
 
     # Set caddy cloudflare ddns email
-    echo "cloudflare email for tls"
-    read -p "(No default ):" cloudflare_email
-    [ -z "${cloudflare_email}" ]
+    echo "cloudflare email for tls (optional)"
+    read -p "(Default rico93@outlxxxxxxxxxx.com):" cloudflare_email
+    [ -z "${cloudflare_email}" ]  && cloudflare_email="rico93@outlxxxxxxxxxx.com"
     echo
     echo "---------------------------"
     echo "cloudflare_email = ${cloudflare_email}"
@@ -146,9 +146,9 @@ pre_install_docker_compose(){
     echo
 
     # Set caddy cloudflare ddns key
-    echo "cloudflare key for tls"
-    read -p "(No default ):" cloudflare_key
-    [ -z "${cloudflare_key}" ]
+    echo "cloudflare key for tls (optional)"
+    read -p "(Default bbbbbbbbbbbbbbbbbb ):" cloudflare_key
+    [ -z "${cloudflare_key}" ] && cloudflare_key="bbbbbbbbbbbbbbbbbb"
     echo
     echo "---------------------------"
     echo "cloudflare_key = ${cloudflare_key}"
