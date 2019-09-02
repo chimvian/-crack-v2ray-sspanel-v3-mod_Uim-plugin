@@ -3,6 +3,8 @@
 # 收费版本
 
 # 使用教程请看 [WIKI](https://github.com/rico93/pay-v2ray-sspanel-v3-mod_Uim-plugin/wiki/)
+## 特别优惠
+Malio SSPANEL主题 + V2Ray后端，原价1000，现在只需899，👉[查看详情](https://malio.fxxkmy.life/)
 
 ## 公告
 
