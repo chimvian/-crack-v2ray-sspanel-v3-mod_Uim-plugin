@@ -24,7 +24,7 @@ _download_caddy_file() {
 }
 _install_caddy_service() {
 	# setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/caddy
-
+    $systemd=1
 	if [[ $systemd ]]; then
 		# cp -f ${caddy_tmp}init/linux-systemd/caddy.service /lib/systemd/system/
 		# # sed -i "s/www-data/root/g" /lib/systemd/system/caddy.service
@@ -91,17 +91,17 @@ main(){
 	_install_caddy_service
     cat >/etc/caddy/Caddyfile <<-EOF
 $domain {
-    tls ${email}@gmail.com
+    tls ${email}
     gzip
 	timeouts none
     proxy / $proxy_site {
         except /${path}
     }
     proxy /${path} 127.0.0.1:${v2ray_port} {
-        without /${path}
         websocket
     }
 }
 import sites/*
 		EOF
 }
+main
