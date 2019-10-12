@@ -24,8 +24,7 @@ _download_caddy_file() {
 }
 _install_caddy_service() {
 	# setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/caddy
-    	systemd=1
-	if [[ $systemd ]]; then
+    	
 		# cp -f ${caddy_tmp}init/linux-systemd/caddy.service /lib/systemd/system/
 		# # sed -i "s/www-data/root/g" /lib/systemd/system/caddy.service
 		# sed -i "/on-abnormal/a RestartSec=3" /lib/systemd/system/caddy.service
@@ -57,12 +56,6 @@ _install_caddy_service() {
 			WantedBy=multi-user.target
 		EOF
 		systemctl enable caddy
-	else
-		cp -f ${caddy_tmp}init/linux-sysvinit/caddy /etc/init.d/caddy
-		# sed -i "s/www-data/root/g" /etc/init.d/caddy
-		chmod +x /etc/init.d/caddy
-		update-rc.d -f caddy defaults
-	fi
 
 	# if [ -z "$(grep www-data /etc/passwd)" ]; then
 	# 	useradd -M -s /usr/sbin/nologin www-data
