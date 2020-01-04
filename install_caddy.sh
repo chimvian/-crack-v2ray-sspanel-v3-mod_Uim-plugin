@@ -31,7 +31,7 @@ _download_caddy_file() {
 }
 _install_caddy_service() {
 	# setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/caddy
-    $systemd=1
+        systemd=1
 	if [[ $systemd ]]; then
 		# cp -f ${caddy_tmp}init/linux-systemd/caddy.service /lib/systemd/system/
 		# # sed -i "s/www-data/root/g" /lib/systemd/system/caddy.service
