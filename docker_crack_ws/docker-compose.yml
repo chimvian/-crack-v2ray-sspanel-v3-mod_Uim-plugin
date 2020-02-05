@@ -15,3 +15,4 @@ services:
         ports: 
             - 8233:8233
         privileged: true
+        restart: always
