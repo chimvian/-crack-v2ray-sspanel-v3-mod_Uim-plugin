@@ -24,6 +24,7 @@ bash <(curl -L -s https://raw.githubusercontent.com/RManOfCN/crack-v2ray-sspanel
 ``` bash
 cd docker_crack_tls
 vi docker-compose.yml
+docker-compose up -d
 ```
 ### ws
 ``` bash
