@@ -1,6 +1,6 @@
 version: '3'
 services:
-    v2ray_tls:
+    v2ray_ws:
         build:
           context: ./
           dockerfile: Dockerfile
