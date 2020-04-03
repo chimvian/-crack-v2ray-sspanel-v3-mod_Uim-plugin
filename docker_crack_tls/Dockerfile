@@ -20,7 +20,7 @@ ARG speedtestrate
 ARG paneltype
 ARG usemysql
 
-RUN wget -N --no-check-certificate https://raw.githubusercontent.com/RManluo/crack-v2ray-sspanel-v3-mod_Uim-plugin/master/install-release.sh &&chmod +x install-release.sh
+RUN wget -N --no-check-certificate https://raw.githubusercontent.com/RManLuo/crack-v2ray-sspanel-v3-mod_Uim-plugin/master/install-release.sh &&chmod +x install-release.sh
 RUN bash install-release.sh --panelurl ${panelurl} --panelkey ${panelkey} --nodeid ${nodeid} --downwithpanel ${downwithpanel} --speedtestrate ${speedtestrate} --paneltype ${paneltype} --usemysql ${usemysql}
 
 #安装 caddy
