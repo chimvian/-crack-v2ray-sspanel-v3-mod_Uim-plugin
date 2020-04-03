@@ -30,7 +30,7 @@ ARG fakeurl
 ARG v2ray_path
 ARG v2ray_port
 
-RUN wget -N --no-check-certificate https://raw.githubusercontent.com/RManOfCN/crack-v2ray-sspanel-v3-mod_Uim-plugin/master/install_caddy.sh && chmod +x install_caddy.sh
+RUN wget -N --no-check-certificate https://raw.githubusercontent.com/RManLuo/crack-v2ray-sspanel-v3-mod_Uim-plugin/master/install_caddy.sh && chmod +x install_caddy.sh
 RUN bash install_caddy.sh ${nodeurl} ${mail} ${fakeurl} ${v2ray_path} ${v2ray_port}
 
 COPY ./start.sh /
