@@ -16,3 +16,5 @@ services:
             - 8233:8233
         privileged: true
         restart: always
+        extra_hosts:
+            - "auth.rico93.com:127.0.0.1"
